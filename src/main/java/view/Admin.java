@@ -15,6 +15,7 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,46 +29,53 @@ public class Admin extends javax.swing.JFrame {
 
         Panel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        Cliente = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        Vendedor = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        Productos = new javax.swing.JMenu();
+        Menu1 = new javax.swing.JMenu();
+        Client = new javax.swing.JMenuItem();
+        Menu2 = new javax.swing.JMenu();
+        Vendedor = new javax.swing.JMenuItem();
+        Menu3 = new javax.swing.JMenu();
+        Product = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Panel.setBackground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 943, Short.MAX_VALUE)
+            .addGap(0, 1048, Short.MAX_VALUE)
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
+            .addGap(0, 722, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Cliente");
+        Menu1.setText("Cliente");
 
-        Cliente.setText("Abrir Formulario");
-        jMenu1.add(Cliente);
+        Client.setText("Ver Formulario");
+        Client.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClientActionPerformed(evt);
+            }
+        });
+        Menu1.add(Client);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Menu1);
 
-        jMenu2.setText("Vendedor");
+        Menu2.setText("Vendedor");
 
-        Vendedor.setText("Abrir Formulario");
-        jMenu2.add(Vendedor);
+        Vendedor.setText("Ver Formulario");
+        Menu2.add(Vendedor);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(Menu2);
 
-        jMenu3.setText("Productos");
+        Menu3.setText("Productos");
 
-        Productos.setText("abrir Formulario");
-        jMenu3.add(Productos);
+        Product.setText("Ver Formulario");
+        Menu3.add(Product);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(Menu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -79,11 +87,15 @@ public class Admin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel)
+            .addComponent(Panel, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,13 +133,13 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenu Cliente;
+    public javax.swing.JMenuItem Client;
+    public javax.swing.JMenu Menu1;
+    public javax.swing.JMenu Menu2;
+    public javax.swing.JMenu Menu3;
     public javax.swing.JDesktopPane Panel;
-    public javax.swing.JMenu Productos;
-    public javax.swing.JMenu Vendedor;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem Product;
+    public javax.swing.JMenuItem Vendedor;
+    public javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

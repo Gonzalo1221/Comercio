@@ -28,8 +28,11 @@ public class Productos extends javax.swing.JInternalFrame {
 
         Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Registrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Mostrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -37,26 +40,57 @@ public class Productos extends javax.swing.JInternalFrame {
         Nombre = new javax.swing.JTextField();
         Precio = new javax.swing.JTextField();
         categoria = new javax.swing.JComboBox<>();
-        Registrar = new javax.swing.JButton();
-        Mostrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+
+        setClosable(true);
 
         Buscar.setText("Buscar");
 
         jLabel2.setText("Id");
+
+        Registrar.setText("Registrar");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Precio", "Categoria"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        Mostrar.setText("Mostrar");
+
+        jLabel1.setText("Productos");
 
         jLabel3.setText("Nombre");
 
@@ -65,12 +99,6 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel5.setText("Categoria");
 
         categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Opcion 1", "Opcion 2" }));
-
-        Registrar.setText("Registrar");
-
-        Mostrar.setText("Mostrar");
-
-        jLabel1.setText("Productos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,7 +133,7 @@ public class Productos extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addGap(157, 157, 157)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +142,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(25, Short.MAX_VALUE))
+                        .addContainerGap(21, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(31, 31, 31)

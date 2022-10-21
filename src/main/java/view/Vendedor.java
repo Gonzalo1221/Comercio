@@ -26,10 +26,9 @@ public class Vendedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        Apellidos = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
         Registrar = new javax.swing.JButton();
+        Apellidos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         Mostrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -37,13 +36,27 @@ public class Vendedor extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         Id = new javax.swing.JTextField();
-        Nombre = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setClosable(true);
 
+        Registrar.setText("Registrar");
+
+        jLabel1.setText("Vendedor");
+
+        Mostrar.setText("Mostrar");
+
+        jLabel2.setText("Id");
+
+        Buscar.setText("Buscar");
+
+        jLabel3.setText("Nombre");
+
+        jLabel4.setText("Apellidos");
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -81,20 +94,6 @@ public class Vendedor extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        Registrar.setText("Registrar");
-
-        jLabel1.setText("Vendedor");
-
-        Mostrar.setText("Mostrar");
-
-        jLabel2.setText("Id");
-
-        Buscar.setText("Buscar");
-
-        jLabel3.setText("Nombre");
-
-        jLabel4.setText("Apellidos");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,7 +120,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -152,7 +151,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();

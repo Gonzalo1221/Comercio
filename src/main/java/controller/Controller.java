@@ -26,10 +26,11 @@ import view.Vendedor;
 public class Controller implements ActionListener {
 
     Login log;
-    Admin admin = new Admin();
+    Admin adm = new Admin();
     Cliente cli = new Cliente();
     Vendedor ven = new Vendedor();
     Productos pro = new Productos();
+    
 
     ArrayList<Clientes> ListCliente = new ArrayList<Clientes>();
     ArrayList<Producto> ListPro = new ArrayList<Producto>();
@@ -51,13 +52,13 @@ public class Controller implements ActionListener {
         this.log = log;
         this.iniciar();
         this.log.Iniciar.addActionListener(this);
-        this.admin.Cliente.addActionListener(this);
-        this.admin.Vendedor.addActionListener(this);
-        this.admin.Productos.addActionListener(this);
         this.cli.Registrar.addActionListener(this);
         this.cli.Buscar.addActionListener(this);
         this.cli.Mostrar.addActionListener(this);
         this.cli.Eliminar.addActionListener(this);
+        this.adm.Client.addActionListener(this);
+        this.adm.Vendedor.addActionListener(this);
+        this.adm.Product.addActionListener(this);
     }
 
     public void iniciar() {
@@ -76,42 +77,42 @@ public class Controller implements ActionListener {
         if (e.getSource() == this.log.Iniciar) {
 
             if (user.equals("admin") && pass.equals("123")) {
-                admin.setVisible(true);
-                log.setVisible(false);
+                this.adm.setVisible(true);
 
             } else if (user.equals("cliente") && pass.equals("567")) {
-                cli.setVisible(true);
-                log.setVisible(false);
+                this.adm.setVisible(true);
+                this.adm.Menu2.setVisible(false);
+                this.adm.Menu3.setVisible(false);
 
             } else if (user.equals("vendedor") && pass.equals("345")) {
-                ven.setVisible(true);
-                log.setVisible(false);
+                this.adm.setVisible(true);
+                this.adm.Menu1.setVisible(false);
+                this.adm.Menu3.setVisible(false);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
             }
-        }
+        } 
 
         /*
         creamos las funciones de los botones y le pones los parametros para el JFrame Login
          */
-        if (e.getSource() == this.admin.Cliente) {
-            Cliente abrir = new Cliente();
-            this.admin.Panel.add(abrir);
-            abrir.show();
-
+        if (this.adm.Client == e.getSource()){
+            Cliente verFormulario = new Cliente();
+            this.adm.Panel.add(verFormulario);
+            verFormulario.show();
         }
-        if (e.getSource() == this.admin.Vendedor) {
-            Vendedor abrir = new Vendedor();
-            this.admin.Panel.add(abrir);
-            abrir.show();
+        if (this.adm.Vendedor == e.getSource()){
+            Vendedor verFormulario = new Vendedor();
+            this.adm.Panel.add(verFormulario);
+            verFormulario.show();
         }
-        if (e.getSource() == this.admin.Productos) {
-            Productos abrir = new Productos();
-            this.admin.Panel.add(abrir);
-            abrir.show();
+        if (this.adm.Product == e.getSource()){
+            Productos verFormulario = new Productos();
+            this.adm.Panel.add(verFormulario);
+            verFormulario.show();
         }
-
+        
         /*
         creamos las funciones de los botones y le pones los parametros para el JFrame Cliente
          */
@@ -193,7 +194,5 @@ public class Controller implements ActionListener {
             Tabla.setValueAt(ListPro.get(i).getPrecio(), i, 2);
             Tabla.setValueAt(ListPro.get(i).getCategoria(), i, 3);
         }
-
     }
-
 }
