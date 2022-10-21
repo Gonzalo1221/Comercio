@@ -10,24 +10,24 @@ package model;
  */
 public class Producto {
     
-    protected int id;
+    protected int Id;
     protected String nombre;
     protected int precio;
     protected int categoria;
 
     public Producto(int id, String nombre, int precio, int categoria) {
-        this.id = id;
+        this.Id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.categoria = categoria;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getNombre() {

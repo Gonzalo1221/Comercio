@@ -15,7 +15,6 @@ public class Admin extends javax.swing.JFrame {
      */
     public Admin() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,52 +27,60 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         Panel = new javax.swing.JDesktopPane();
-        Menu = new javax.swing.JMenuBar();
-        cl = new javax.swing.JMenu();
-        Cliente = new javax.swing.JMenuItem();
-        ve = new javax.swing.JMenu();
-        Vendedor = new javax.swing.JMenuItem();
-        pr = new javax.swing.JMenu();
-        Productos = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Cliente = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        Vendedor = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        Productos = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGap(0, 943, Short.MAX_VALUE)
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 510));
+        jMenu1.setText("Cliente");
 
-        cl.setText("Cliente");
+        Cliente.setText("Abrir Formulario");
+        jMenu1.add(Cliente);
 
-        Cliente.setText("Cliente");
-        cl.add(Cliente);
+        jMenuBar1.add(jMenu1);
 
-        Menu.add(cl);
+        jMenu2.setText("Vendedor");
 
-        ve.setText("Vendedor");
+        Vendedor.setText("Abrir Formulario");
+        jMenu2.add(Vendedor);
 
-        Vendedor.setText("Vendedor");
-        ve.add(Vendedor);
+        jMenuBar1.add(jMenu2);
 
-        Menu.add(ve);
+        jMenu3.setText("Productos");
 
-        pr.setText("Productos");
+        Productos.setText("abrir Formulario");
+        jMenu3.add(Productos);
 
-        Productos.setText("Productos");
-        pr.add(Productos);
+        jMenuBar1.add(jMenu3);
 
-        Menu.add(pr);
+        setJMenuBar(jMenuBar1);
 
-        setJMenuBar(Menu);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,13 +121,13 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenuItem Cliente;
-    public javax.swing.JMenuBar Menu;
+    public javax.swing.JMenu Cliente;
     public javax.swing.JDesktopPane Panel;
-    public javax.swing.JMenuItem Productos;
-    public javax.swing.JMenuItem Vendedor;
-    public javax.swing.JMenu cl;
-    public javax.swing.JMenu pr;
-    public javax.swing.JMenu ve;
+    public javax.swing.JMenu Productos;
+    public javax.swing.JMenu Vendedor;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

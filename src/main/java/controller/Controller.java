@@ -37,15 +37,13 @@ public class Controller implements ActionListener {
 
     /*
     creamos las variables
-    */
-    
+     */
     private int id = 0;
     private String Nombre = null;
     private String Apellidos = null;
     private String Direccion = null;
     private String user = null;
     private String pass = null;
-    
     private int precio = 0;
     private int categoria = 0;
 
@@ -98,20 +96,20 @@ public class Controller implements ActionListener {
         creamos las funciones de los botones y le pones los parametros para el JFrame Login
          */
         if (e.getSource() == this.admin.Cliente) {
-            Cliente cli = new Cliente();
-            this.admin.Panel.add(cli);
-            cli.show();
+            Cliente abrir = new Cliente();
+            this.admin.Panel.add(abrir);
+            abrir.show();
 
         }
         if (e.getSource() == this.admin.Vendedor) {
-            Vendedor ven = new Vendedor();
-            this.admin.Panel.add(ven);
-            ven.show();
+            Vendedor abrir = new Vendedor();
+            this.admin.Panel.add(abrir);
+            abrir.show();
         }
         if (e.getSource() == this.admin.Productos) {
-            Productos pro = new Productos();
-            this.admin.Panel.add(pro);
-            pro.show();
+            Productos abrir = new Productos();
+            this.admin.Panel.add(abrir);
+            abrir.show();
         }
 
         /*
@@ -172,44 +170,6 @@ public class Controller implements ActionListener {
         /*
         creamos las funciones de los botones y le pones los parametros para el JFrame Productos
          */
-        if (this.pro.Registrar == e.getSource()) {
-
-            id = Integer.parseInt(this.pro.id.getText());
-            Nombre = this.pro.Nombre.getText();
-            precio = Integer.parseInt(this.pro.Precio.getText());
-            categoria = Integer.parseInt(this.pro.categoria.getActionCommand());
-
-//            ListPro.add(new Producto(id, Nombre, precio, categoria);
-
-//            table(this.cli.Tabla, ListCliente);
-
-            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
-
-            this.cli.Id.setText("");
-            this.cli.Nombre.setText("");
-            this.cli.Apellidos.setText("");
-            this.cli.Direccion.setText("");
-        }
-
-        if (this.cli.Mostrar == e.getSource()) {
-
-            System.out.println("La lista contiene " + ListCliente.size() + " elementos\n");
-
-            for (int i = 0; i < ListCliente.size(); i++) {
-                System.out.println("Documento: " + this.ListCliente.get(i).getId() + "\n" + "Nombre: " + this.ListCliente.get(i).getNombre() + "\n" + "Apellidos: " + this.ListCliente.get(i).getApellidos() + "\n");
-            }
-        }
-
-        if (this.cli.Buscar == e.getSource()) {
-            id = Integer.parseInt(this.cli.Id.getText());
-            for (int i = 0; i < ListCliente.size(); i++) {
-                if (id == ListCliente.get(i).getId()) {
-                    this.cli.Nombre.setText(ListCliente.get(i).getNombre());
-                    this.cli.Apellidos.setText(ListCliente.get(i).getApellidos());
-                }
-            }
-
-        }
     }
 
     public void table(JTable Tabla, ArrayList<Clientes> ListCliente) {
