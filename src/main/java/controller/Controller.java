@@ -223,7 +223,7 @@ public class Controller implements ActionListener {
             for (int i = 0; i < ListPro.size(); i++) {
                 if (id == ListPro.get(i).getId()) {
                     this.pro.Nombre.setText(ListPro.get(i).getNombre());
-//                    this.pro.Precio.setText(ListPro.get(i).getPrecio());
+//                    this.pro.Precio.setText(ListPro.get(i).setPrecio());
                 }
             }
 
