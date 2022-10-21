@@ -38,7 +38,7 @@ public class Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Panel.setBackground(new java.awt.Color(0, 153, 153));
+        Panel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);

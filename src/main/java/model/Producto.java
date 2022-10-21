@@ -13,9 +13,9 @@ public class Producto {
     protected int Id;
     protected String nombre;
     protected int precio;
-    protected int categoria;
+    protected String categoria;
 
-    public Producto(int id, String nombre, int precio, int categoria) {
+    public Producto(int id, String nombre, int precio, String categoria) {
         this.Id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -46,11 +46,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
     

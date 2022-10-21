@@ -30,23 +30,16 @@ public class Controller implements ActionListener {
     Cliente cli = new Cliente();
     Vendedor ven = new Vendedor();
     Productos pro = new Productos();
-    
 
     ArrayList<Clientes> ListCliente = new ArrayList<Clientes>();
     ArrayList<Producto> ListPro = new ArrayList<Producto>();
-    ArrayList<Vendedores> Listvendedor = new ArrayList<Vendedores>();
+    ArrayList<Vendedores> Listven = new ArrayList<Vendedores>();
 
     /*
     creamos las variables
      */
-    private int id = 0;
-    private String Nombre = null;
-    private String Apellidos = null;
-    private String Direccion = null;
-    private String user = null;
-    private String pass = null;
-    private int precio = 0;
-    private int categoria = 0;
+    private int id, precio;
+    private String Nombre, Apellidos, Direccion, user, pass, categoria;
 
     public Controller(Login log) {
         this.log = log;
@@ -59,6 +52,12 @@ public class Controller implements ActionListener {
         this.adm.Client.addActionListener(this);
         this.adm.Vendedor.addActionListener(this);
         this.adm.Product.addActionListener(this);
+        this.ven.Registrar.addActionListener(this);
+        this.ven.Mostrar.addActionListener(this);
+        this.ven.Buscar.addActionListener(this);
+        this.pro.Registrar.addActionListener(this);
+        this.pro.Mostrar.addActionListener(this);
+        this.pro.Buscar.addActionListener(this);
     }
 
     public void iniciar() {
@@ -92,29 +91,26 @@ public class Controller implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
             }
-        } 
+        }
 
         /*
-        creamos las funciones de los botones y le pones los parametros para el JFrame Login
+        creamos las funciones de los botones y le ponemos los parametros para el JFrame Login
          */
-        if (this.adm.Client == e.getSource()){
-            Cliente verFormulario = new Cliente();
-            this.adm.Panel.add(verFormulario);
-            verFormulario.show();
+        if (this.adm.Client == e.getSource()) {
+            this.adm.Panel.add(cli);
+            cli.show();
         }
-        if (this.adm.Vendedor == e.getSource()){
-            Vendedor verFormulario = new Vendedor();
-            this.adm.Panel.add(verFormulario);
-            verFormulario.show();
+        if (this.adm.Vendedor == e.getSource()) {
+            this.adm.Panel.add(ven);
+            ven.show();
         }
-        if (this.adm.Product == e.getSource()){
-            Productos verFormulario = new Productos();
-            this.adm.Panel.add(verFormulario);
-            verFormulario.show();
+        if (this.adm.Product == e.getSource()) {
+            this.adm.Panel.add(pro);
+            pro.show();
         }
-        
+
         /*
-        creamos las funciones de los botones y le pones los parametros para el JFrame Cliente
+        creamos las funciones de los botones y le ponemos los parametros para el JFrame Cliente
          */
         if (this.cli.Registrar == e.getSource()) {
 
@@ -150,6 +146,7 @@ public class Controller implements ActionListener {
                 if (id == ListCliente.get(i).getId()) {
                     this.cli.Nombre.setText(ListCliente.get(i).getNombre());
                     this.cli.Apellidos.setText(ListCliente.get(i).getApellidos());
+                    this.cli.Direccion.setText(ListCliente.get(i).getDireccion());
                 }
             }
 
@@ -160,18 +157,82 @@ public class Controller implements ActionListener {
             for (int i = 0; i < ListCliente.size(); i++) {
                 if (id == ListCliente.get(i).getId()) {
                     ListCliente.remove(i);
-                    this.cli.Tabla.remove(i);
+                    this.cli.Tabla.clearSelection();
 
                     JOptionPane.showMessageDialog(null, "DATO ELIMINADO CON ÉXITO");
                 }
             }
 
         }
+        /*
+        creamos las funciones de los botones y le ponemos los parametros para el JFrame Vendedor
+         */
+
+        if (this.ven.Registrar == e.getSource()) {
+
+            id = Integer.parseInt(this.ven.Id.getText());
+            Nombre = this.ven.Nombre.getText();
+            Apellidos = this.ven.Apellidos.getText();
+
+            Listven.add(new Vendedores(id, Nombre, Apellidos));
+            
+            tableven(this.ven.Tabla, Listven);
+            
+            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
+            
+            this.ven.Id.setText("");
+            this.ven.Nombre.setText("");
+            this.ven.Apellidos.setText("");
+        }
 
         /*
-        creamos las funciones de los botones y le pones los parametros para el JFrame Productos
+            creamos las funciones de los botones y le ponemos los parametros para el JFrame Productos
          */
+        if (this.pro.Registrar == e.getSource()) {
+
+            id = Integer.parseInt(this.pro.id.getText());
+            Nombre = this.pro.Nombre.getText();
+            precio = Integer.parseInt(this.pro.Precio.getText());
+            categoria = (String) this.pro.categoria.getSelectedItem();
+
+            ListPro.add(new Producto(id, Nombre, precio, categoria));
+            
+            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
+            
+            tablepro(this.pro.Tabla, ListPro);
+        
+            this.pro.id.setText("");
+            this.pro.Nombre.setText("");
+            this.pro.Precio.setText("");
+            this.pro.categoria.setSelectedItem("");
+        }
+
+        if (this.pro.Mostrar == e.getSource()) {
+
+            System.out.println("La lista contiene " + ListPro.size() + " elementos\n");
+
+            for (int i = 0; i < ListPro.size(); i++) {
+                System.out.println("Documento: " + this.ListPro.get(i).getId()+ "\n" + "Nombre: " + this.ListPro.get(i).getNombre() +
+                        "\n" + "Precio: " + this.ListPro.get(i).getPrecio()+ "\n"+"Categoria "+this.ListPro.get(i).getCategoria());
+            }
+        }
+
+        if (this.pro.Buscar == e.getSource()) {
+            id = Integer.parseInt(this.pro.id.getText());
+            precio = Integer.parseInt(this.pro.Precio.getText());
+            for (int i = 0; i < ListPro.size(); i++) {
+                if (id == ListPro.get(i).getId()) {
+                    this.pro.Nombre.setText(ListPro.get(i).getNombre());
+//                    this.pro.Precio.setText(ListPro.get(i).getPrecio());
+                }
+            }
+
+        }
     }
+    
+    /*
+    CREAMOS LAS FUNCIONES DE LAS TABLAS PARA QUE ACRGUE LAS INFORMACIONES SUMINISTRADAS
+    */
 
     public void table(JTable Tabla, ArrayList<Clientes> ListCliente) {
 
@@ -185,14 +246,25 @@ public class Controller implements ActionListener {
 
     }
 
+    public void tableven(JTable Tabla, ArrayList<Vendedores> Listven) {
+
+        for (int i = 0; i < this.Listven.size(); i++) {
+
+            this.ven.Tabla.setValueAt(Listven.get(i).getId(), i, 0);
+            this.ven.Tabla.setValueAt(Listven.get(i).getNombre(), i, 1);
+            this.ven.Tabla.setValueAt(Listven.get(i).getApellidos(), i, 2);
+        }
+
+    }
+
     public void tablepro(JTable Tabla, ArrayList<Producto> ListPro) {
 
         for (int i = 0; i < ListPro.size(); i++) {
 
-            Tabla.setValueAt(ListPro.get(i).getId(), i, 0);
-            Tabla.setValueAt(ListPro.get(i).getNombre(), i, 1);
-            Tabla.setValueAt(ListPro.get(i).getPrecio(), i, 2);
-            Tabla.setValueAt(ListPro.get(i).getCategoria(), i, 3);
+            this.pro.Tabla.setValueAt(ListPro.get(i).getId(), i, 0);
+            this.pro.Tabla.setValueAt(ListPro.get(i).getNombre(), i, 1);
+            this.pro.Tabla.setValueAt(ListPro.get(i).getPrecio(), i, 2);
+            this.pro.Tabla.setValueAt(ListPro.get(i).getCategoria(), i, 3);
         }
     }
 }

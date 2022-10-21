@@ -41,10 +41,17 @@ public class Cliente extends javax.swing.JInternalFrame {
         Ide = new javax.swing.JLabel();
         Mostrar = new javax.swing.JButton();
         Nombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Dir.setFont(new java.awt.Font("Adobe Devanagari", 1, 18)); // NOI18N
+        Dir.setForeground(new java.awt.Color(255, 0, 0));
         Dir.setText("Direccion");
+        getContentPane().add(Dir, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 229, 80, -1));
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,90 +92,51 @@ public class Cliente extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(Tabla);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 24, 452, 326));
+
+        Registrar.setBackground(new java.awt.Color(0, 204, 204));
         Registrar.setText("Registrar");
+        getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 285, -1, -1));
 
+        Ape.setFont(new java.awt.Font("Adobe Devanagari", 1, 18)); // NOI18N
+        Ape.setForeground(new java.awt.Color(255, 0, 0));
         Ape.setText("Apellidos");
+        getContentPane().add(Ape, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 189, 80, -1));
+        getContentPane().add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 106, 192, -1));
 
+        Nom.setFont(new java.awt.Font("Adobe Devanagari", 1, 18)); // NOI18N
+        Nom.setForeground(new java.awt.Color(255, 0, 0));
         Nom.setText("Nombre");
+        getContentPane().add(Nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 149, 80, -1));
 
+        Buscar.setBackground(new java.awt.Color(0, 204, 204));
         Buscar.setText("Buscar");
+        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 285, -1, -1));
 
+        Cli.setFont(new java.awt.Font("Adobe Devanagari", 0, 36)); // NOI18N
+        Cli.setForeground(new java.awt.Color(255, 255, 255));
         Cli.setText("Cliente");
+        getContentPane().add(Cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        getContentPane().add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 226, 192, -1));
 
+        Eliminar.setBackground(new java.awt.Color(0, 204, 204));
         Eliminar.setText("Eliminar");
+        getContentPane().add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 285, -1, -1));
+        getContentPane().add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 186, 192, -1));
 
+        Ide.setFont(new java.awt.Font("Adobe Devanagari", 1, 18)); // NOI18N
+        Ide.setForeground(new java.awt.Color(255, 0, 0));
         Ide.setText("ID");
+        getContentPane().add(Ide, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 109, 80, -1));
 
+        Mostrar.setBackground(new java.awt.Color(0, 204, 204));
         Mostrar.setText("Mostrar");
+        getContentPane().add(Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 285, -1, -1));
+        getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 146, 192, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(Registrar)
-                        .addGap(21, 21, 21)
-                        .addComponent(Mostrar)
-                        .addGap(43, 43, 43)
-                        .addComponent(Buscar)
-                        .addGap(34, 34, 34)
-                        .addComponent(Eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Cli)
-                            .addComponent(Nom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Dir, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(Ape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(161, 161, 161)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Cli)
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Ide)
-                                .addGap(18, 18, 18)
-                                .addComponent(Nom)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ape)
-                                .addGap(18, 18, 18)
-                                .addComponent(Dir)
-                                .addGap(61, 61, 61)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Registrar)
-                                    .addComponent(Mostrar)
-                                    .addComponent(Buscar)
-                                    .addComponent(Eliminar)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Pictures\\Fondo.jpg")); // NOI18N
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,6 +157,7 @@ public class Cliente extends javax.swing.JInternalFrame {
     public javax.swing.JTextField Nombre;
     public javax.swing.JButton Registrar;
     public javax.swing.JTable Tabla;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

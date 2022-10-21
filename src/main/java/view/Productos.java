@@ -30,7 +30,7 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         Registrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
         Mostrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,6 +42,9 @@ public class Productos extends javax.swing.JInternalFrame {
         categoria = new javax.swing.JComboBox<>();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         Buscar.setText("Buscar");
 
@@ -49,7 +52,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         Registrar.setText("Registrar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,7 +89,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 "ID", "Nombre", "Precio", "Categoria"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabla);
 
         Mostrar.setText("Mostrar");
 
@@ -179,6 +182,7 @@ public class Productos extends javax.swing.JInternalFrame {
     public javax.swing.JTextField Nombre;
     public javax.swing.JTextField Precio;
     public javax.swing.JButton Registrar;
+    public javax.swing.JTable Tabla;
     public javax.swing.JComboBox<String> categoria;
     public javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
@@ -187,6 +191,5 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

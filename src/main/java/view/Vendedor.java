@@ -37,9 +37,12 @@ public class Vendedor extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         Id = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         Registrar.setText("Registrar");
 
@@ -55,7 +58,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Apellidos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -92,7 +95,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 "Id", "Nombre", "Apellidos"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,11 +168,11 @@ public class Vendedor extends javax.swing.JInternalFrame {
     public javax.swing.JButton Mostrar;
     public javax.swing.JTextField Nombre;
     public javax.swing.JButton Registrar;
+    public javax.swing.JTable Tabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

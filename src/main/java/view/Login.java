@@ -80,39 +80,16 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(sepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 220));
 
         terpanel.setBackground(new java.awt.Color(0, 255, 255));
+        terpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        terpanel.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 123, 208, -1));
 
         Iniciar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         Iniciar.setText("Iniciar");
+        terpanel.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 180, -1, -1));
 
         Salir.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         Salir.setText("Salir");
-
-        javax.swing.GroupLayout terpanelLayout = new javax.swing.GroupLayout(terpanel);
-        terpanel.setLayout(terpanelLayout);
-        terpanelLayout.setHorizontalGroup(
-            terpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(terpanelLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(terpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Iniciar)
-                .addGap(38, 38, 38)
-                .addComponent(Salir)
-                .addGap(55, 55, 55))
-        );
-        terpanelLayout.setVerticalGroup(
-            terpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, terpanelLayout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
-                .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(terpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Iniciar)
-                    .addComponent(Salir))
-                .addGap(18, 18, 18))
-        );
+        terpanel.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 180, -1, -1));
 
         getContentPane().add(terpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 350, 220));
 
