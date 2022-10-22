@@ -243,6 +243,11 @@ public class Controller implements ActionListener {
     /*
     CREAMOS LAS FUNCIONES DE LAS TABLAS PARA QUE ACRGUE LAS INFORMACIONES SUMINISTRADAS
     */
+    /**
+     * 
+     * @param Tabla
+     * @param ListCliente 
+     */
 
     public void table(JTable Tabla, ArrayList<Clientes> ListCliente) {
 
