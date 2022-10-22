@@ -77,16 +77,19 @@ public class Controller implements ActionListener {
 
             if (user.equals("admin") && pass.equals("123")) {
                 this.adm.setVisible(true);
+                this.log.dispose();
 
             } else if (user.equals("cliente") && pass.equals("567")) {
                 this.adm.setVisible(true);
                 this.adm.Menu2.setVisible(false);
                 this.adm.Menu3.setVisible(false);
+                this.log.dispose();
 
             } else if (user.equals("vendedor") && pass.equals("345")) {
                 this.adm.setVisible(true);
                 this.adm.Menu1.setVisible(false);
                 this.adm.Menu3.setVisible(false);
+                this.log.dispose();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
@@ -107,6 +110,10 @@ public class Controller implements ActionListener {
         if (this.adm.Product == e.getSource()) {
             this.adm.Panel.add(pro);
             pro.show();
+        }
+        if (this.adm.Salir == e.getSource()){
+            this.adm.dispose();
+            this.log.setVisible(true);
         }
 
         /*

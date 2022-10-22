@@ -35,6 +35,8 @@ public class Admin extends javax.swing.JFrame {
         Vendedor = new javax.swing.JMenuItem();
         Menu3 = new javax.swing.JMenu();
         Product = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +78,13 @@ public class Admin extends javax.swing.JFrame {
         Menu3.add(Product);
 
         jMenuBar1.add(Menu3);
+
+        jMenu1.setText("Log Out");
+
+        Salir.setText("Salir");
+        jMenu1.add(Salir);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -139,7 +148,9 @@ public class Admin extends javax.swing.JFrame {
     public javax.swing.JMenu Menu3;
     public javax.swing.JDesktopPane Panel;
     public javax.swing.JMenuItem Product;
+    public javax.swing.JMenuItem Salir;
     public javax.swing.JMenuItem Vendedor;
+    private javax.swing.JMenu jMenu1;
     public javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
