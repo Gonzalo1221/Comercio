@@ -235,6 +235,9 @@ public class Controller implements ActionListener {
             }
 
         }
+        /**
+         * final de las funciones
+         */
     }
     
     /*
