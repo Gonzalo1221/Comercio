@@ -4,12 +4,15 @@
  */
 package model;
 
+import static Model.ListaUsuario.mostrar;
+import java.util.Vector;
+
 /**
  *
  * @author SENA
  */
 public class Clientes {
-    
+
     protected int id;
     protected String Nombre;
     protected String Apellidos;
@@ -53,6 +56,19 @@ public class Clientes {
     public void setDireccion(String Direccion) {
         this.Direccion = Direccion;
     }
-    
-    
+
+    public static int verificarUsuarioNuevo(int Id, String Nombre, String Apellidos, String Direccion) {
+
+        Vector lista = mostrar();
+        Clientes obj;
+        
+        
+        for (int i = 0; i < lista.size(); i++) {
+            obj = (Clientes) lista.elementAt(i);
+            if (obj.getId() == Id && obj.getNombre().equalsIgnoreCase(Nombre) && obj.getApellidos().equalsIgnoreCase(Apellidos)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

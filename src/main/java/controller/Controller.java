@@ -4,10 +4,13 @@
  */
 package controller;
 
+import Model.ListaUsuario;
+import static Model.ListaUsuario.mostrar;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import model.Clientes;
@@ -39,7 +42,7 @@ public class Controller implements ActionListener {
     creamos las variables
      */
     private int id;
-    private String Nombre, Apellidos, Direccion, user, pass, precio, categoria;
+    public String Nombre, Apellidos, Direccion, user, pass, precio, categoria;
 
     public Controller(Login log) {
         this.log = log;
@@ -49,6 +52,7 @@ public class Controller implements ActionListener {
         BOTONES LOGIN Y CLIENTE
          */
         this.log.Iniciar.addActionListener(this);
+        this.log.Salir.addActionListener(this);
         this.cli.Registrar.addActionListener(this);
         this.cli.Buscar.addActionListener(this);
         this.cli.Mostrar.addActionListener(this);
@@ -96,11 +100,17 @@ public class Controller implements ActionListener {
                 this.adm.setVisible(true);
                 this.log.dispose();
 
+                this.log.User.setText("");
+                this.log.Pass.setText("");
+
             } else if (user.equals("cliente") && pass.equals("567")) {
                 this.adm.setVisible(true);
                 this.adm.Menu2.setVisible(false);
                 this.adm.Menu3.setVisible(false);
                 this.log.dispose();
+
+                this.log.User.setText("");
+                this.log.Pass.setText("");
 
             } else if (user.equals("vendedor") && pass.equals("345")) {
                 this.adm.setVisible(true);
@@ -108,9 +118,16 @@ public class Controller implements ActionListener {
                 this.adm.Menu3.setVisible(false);
                 this.log.dispose();
 
+                this.log.User.setText("");
+                this.log.Pass.setText("");
+
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario Incorrecto");
             }
+        }
+        
+        if(this.log.Salir == e.getSource()){
+            System.exit(0);
         }
 
         /*
@@ -119,14 +136,22 @@ public class Controller implements ActionListener {
         if (this.adm.Client == e.getSource()) {
             this.adm.Panel.add(cli);
             cli.show();
+            this.pro.dispose();
+            this.ven.dispose();
+
         }
         if (this.adm.Vendedor == e.getSource()) {
             this.adm.Panel.add(ven);
             ven.show();
+            this.cli.dispose();
+            this.pro.dispose();
+
         }
         if (this.adm.Product == e.getSource()) {
             this.adm.Panel.add(pro);
             pro.show();
+            this.cli.dispose();
+            this.ven.dispose();
         }
         if (this.adm.Salir == e.getSource()) {
             this.adm.dispose();
@@ -143,34 +168,50 @@ public class Controller implements ActionListener {
             Apellidos = this.cli.Apellidos.getText();
             Direccion = this.cli.Direccion.getText();
 
-            ListCliente.add(new Clientes(id, Nombre, Apellidos, Direccion));
+            Clientes obj = new Clientes(id, Nombre, Apellidos, Direccion);
 
-            table(this.cli.Tabla, ListCliente);
+            if (Clientes.verificarUsuarioNuevo(id, Nombre, Apellidos, Direccion) == -1) {
+                obj.setId(id);
+                obj.setNombre(Nombre);
+                obj.setApellidos(Apellidos);
+                obj.setDireccion(Direccion);
 
-            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
+                ListaUsuario.agregar(obj);
 
-            this.cli.Id.setText("");
-            this.cli.Nombre.setText("");
-            this.cli.Apellidos.setText("");
-            this.cli.Direccion.setText("");
+                table1(this.cli.Tabla, ListaUsuario.datos);
+
+                JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
+
+                this.cli.Id.setText("");
+                this.cli.Nombre.setText("");
+                this.cli.Apellidos.setText("");
+                this.cli.Direccion.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "USERNAME YA EXISTE");
+            }
+
+//            ListCliente.add(new Clientes(id, Nombre, Apellidos, Direccion));
+//            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
         }
 
         if (this.cli.Mostrar == e.getSource()) {
 
-            System.out.println("La lista contiene " + ListCliente.size() + " elementos\n");
+            System.out.println("La lista contiene " + ListaUsuario.datos.size() + " elementos\n");
 
-            for (int i = 0; i < ListCliente.size(); i++) {
-                System.out.println("Id: " + this.ListCliente.get(i).getId() + "\n" + "Nombre: " + this.ListCliente.get(i).getNombre() + "\n" + "Apellidos: " + this.ListCliente.get(i).getApellidos() + "\n");
+            for (int i = 0; i < ListaUsuario.datos.size(); i++) {
+                System.out.println("Id: " + ListaUsuario.datos.get(i).getId() + "\n" + "Nombre: " + ListaUsuario.datos.get(i).getNombre() + "\n" + "Apellidos: " + ListaUsuario.datos.get(i).getApellidos() + "\n");
             }
         }
 
         if (this.cli.Buscar == e.getSource()) {
+
             id = Integer.parseInt(this.cli.Id.getText());
-            for (int i = 0; i < ListCliente.size(); i++) {
-                if (id == ListCliente.get(i).getId()) {
-                    this.cli.Nombre.setText(ListCliente.get(i).getNombre());
-                    this.cli.Apellidos.setText(ListCliente.get(i).getApellidos());
-                    this.cli.Direccion.setText(ListCliente.get(i).getDireccion());
+
+            for (int i = 0; i < ListaUsuario.datos.size(); i++) {
+                if (id == ListaUsuario.datos.get(i).getId()) {
+                    this.cli.Nombre.setText(ListaUsuario.datos.get(i).getNombre());
+                    this.cli.Apellidos.setText(ListaUsuario.datos.get(i).getApellidos());
+                    this.cli.Direccion.setText(ListaUsuario.datos.get(i).getDireccion());
                 }
             }
 
@@ -178,20 +219,25 @@ public class Controller implements ActionListener {
 
         if (this.cli.Eliminar == e.getSource()) {
             id = Integer.parseInt(this.cli.Id.getText());
-            for (int i = 0; i < ListCliente.size(); i++) {
-                if (id == ListCliente.get(i).getId()) {
-                    ListCliente.remove(i);
+            for (int i = 0; i < ListaUsuario.datos.size(); i++) {
+                if (id == ListaUsuario.datos.get(i).getId()) {
+                    ListaUsuario.datos.remove(i);
 
                     JOptionPane.showMessageDialog(null, "DATO ELIMINADO CON ÉXITO");
+                    
+                    this.cli.Id.setText("");
+                    this.cli.Nombre.setText("");
+                    this.cli.Apellidos.setText("");
+                    this.cli.Direccion.setText("");
                 }
             }
 
         }
-        
-        if (this.cli.Eliminar == e.getSource()){
-            
+
+        if (this.cli.Eliminar == e.getSource()) {
+
             this.cli.Tabla.removeAll();
-            
+
         }
         /*
         creamos las funciones de los botones y le ponemos los parametros para el JFrame Vendedor
@@ -289,6 +335,18 @@ public class Controller implements ActionListener {
      * @param Tabla
      * @param ListCliente
      */
+    public void table1(JTable Tabla, Vector<Clientes> ListCliente) {
+
+        for (int i = 0; i < ListCliente.size(); i++) {
+
+            this.cli.Tabla.setValueAt(ListCliente.get(i).getId(), i, 0);
+            this.cli.Tabla.setValueAt(ListCliente.get(i).getNombre(), i, 1);
+            this.cli.Tabla.setValueAt(ListCliente.get(i).getApellidos(), i, 2);
+            this.cli.Tabla.setValueAt(ListCliente.get(i).getDireccion(), i, 3);
+        }
+
+    }
+
     public void table(JTable Tabla, ArrayList<Clientes> ListCliente) {
 
         for (int i = 0; i < ListCliente.size(); i++) {
