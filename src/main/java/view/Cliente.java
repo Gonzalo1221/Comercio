@@ -134,9 +134,9 @@ public class Cliente extends javax.swing.JInternalFrame {
         getContentPane().add(Mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 285, -1, -1));
         getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 146, 192, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SENA\\Pictures\\Fondo.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Gonzalo Araujo\\Comercio\\src\\main\\java\\IMG\\Fondo.jpg")); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 380));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

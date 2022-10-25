@@ -28,6 +28,7 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         Panel = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu1 = new javax.swing.JMenu();
         Client = new javax.swing.JMenuItem();
@@ -42,15 +43,25 @@ public class Admin extends javax.swing.JFrame {
 
         Panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setText("jLabel1");
+
+        Panel.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 967, Short.MAX_VALUE)
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1)
+                .addContainerGap(832, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jLabel1)
+                .addContainerGap(454, Short.MAX_VALUE))
         );
 
         Menu1.setText("Cliente");
@@ -150,7 +161,8 @@ public class Admin extends javax.swing.JFrame {
     public javax.swing.JMenuItem Product;
     public javax.swing.JMenuItem Salir;
     public javax.swing.JMenuItem Vendedor;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JMenu jMenu1;
     public javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

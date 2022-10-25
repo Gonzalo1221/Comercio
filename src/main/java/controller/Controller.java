@@ -38,23 +38,40 @@ public class Controller implements ActionListener {
     /*
     creamos las variables
      */
-    private int id, precio;
-    private String Nombre, Apellidos, Direccion, user, pass, categoria;
+    private int id;
+    private String Nombre, Apellidos, Direccion, user, pass, precio, categoria;
 
     public Controller(Login log) {
         this.log = log;
         this.iniciar();
+
+        /*
+        BOTONES LOGIN Y CLIENTE
+         */
         this.log.Iniciar.addActionListener(this);
         this.cli.Registrar.addActionListener(this);
         this.cli.Buscar.addActionListener(this);
         this.cli.Mostrar.addActionListener(this);
         this.cli.Eliminar.addActionListener(this);
+
+        /*
+        BOTONES ADMIN   
+         */
         this.adm.Client.addActionListener(this);
         this.adm.Vendedor.addActionListener(this);
         this.adm.Product.addActionListener(this);
+        this.adm.Salir.addActionListener(this);
+
+        /*
+        BOTONES VENDEDOR
+         */
         this.ven.Registrar.addActionListener(this);
         this.ven.Mostrar.addActionListener(this);
         this.ven.Buscar.addActionListener(this);
+
+        /*
+        BOTONES PRODUCTOS
+         */
         this.pro.Registrar.addActionListener(this);
         this.pro.Mostrar.addActionListener(this);
         this.pro.Buscar.addActionListener(this);
@@ -111,7 +128,7 @@ public class Controller implements ActionListener {
             this.adm.Panel.add(pro);
             pro.show();
         }
-        if (this.adm.Salir == e.getSource()){
+        if (this.adm.Salir == e.getSource()) {
             this.adm.dispose();
             this.log.setVisible(true);
         }
@@ -143,7 +160,7 @@ public class Controller implements ActionListener {
             System.out.println("La lista contiene " + ListCliente.size() + " elementos\n");
 
             for (int i = 0; i < ListCliente.size(); i++) {
-                System.out.println("Documento: " + this.ListCliente.get(i).getId() + "\n" + "Nombre: " + this.ListCliente.get(i).getNombre() + "\n" + "Apellidos: " + this.ListCliente.get(i).getApellidos() + "\n");
+                System.out.println("Id: " + this.ListCliente.get(i).getId() + "\n" + "Nombre: " + this.ListCliente.get(i).getNombre() + "\n" + "Apellidos: " + this.ListCliente.get(i).getApellidos() + "\n");
             }
         }
 
@@ -164,12 +181,17 @@ public class Controller implements ActionListener {
             for (int i = 0; i < ListCliente.size(); i++) {
                 if (id == ListCliente.get(i).getId()) {
                     ListCliente.remove(i);
-                    this.cli.Tabla.clearSelection();
 
                     JOptionPane.showMessageDialog(null, "DATO ELIMINADO CON ÉXITO");
                 }
             }
 
+        }
+        
+        if (this.cli.Eliminar == e.getSource()){
+            
+            this.cli.Tabla.removeAll();
+            
         }
         /*
         creamos las funciones de los botones y le ponemos los parametros para el JFrame Vendedor
@@ -182,14 +204,34 @@ public class Controller implements ActionListener {
             Apellidos = this.ven.Apellidos.getText();
 
             Listven.add(new Vendedores(id, Nombre, Apellidos));
-            
+
             tableven(this.ven.Tabla, Listven);
-            
+
             JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
-            
+
             this.ven.Id.setText("");
             this.ven.Nombre.setText("");
             this.ven.Apellidos.setText("");
+        }
+
+        if (this.ven.Mostrar == e.getSource()) {
+
+            System.out.println("La lista contiene " + Listven.size() + " elementos\n");
+
+            for (int i = 0; i < Listven.size(); i++) {
+                System.out.println("Id: " + this.Listven.get(i).getId() + "\n" + "Nombre: " + this.Listven.get(i).getNombre() + "\n" + "Apellidos: " + this.Listven.get(i).getApellidos() + "\n");
+            }
+
+        }
+
+        if (this.ven.Buscar == e.getSource()) {
+            id = Integer.parseInt(this.ven.Id.getText());
+            for (int i = 0; i < Listven.size(); i++) {
+                if (id == Listven.get(i).getId()) {
+                    this.pro.Nombre.setText(Listven.get(i).getNombre());
+                    this.ven.Apellidos.setText(Listven.get(i).getApellidos());
+                }
+            }
         }
 
         /*
@@ -199,15 +241,15 @@ public class Controller implements ActionListener {
 
             id = Integer.parseInt(this.pro.id.getText());
             Nombre = this.pro.Nombre.getText();
-            precio = Integer.parseInt(this.pro.Precio.getText());
+            precio = this.pro.Precio.getText();
             categoria = (String) this.pro.categoria.getSelectedItem();
 
             ListPro.add(new Producto(id, Nombre, precio, categoria));
-            
+
             JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
-            
+
             tablepro(this.pro.Tabla, ListPro);
-        
+
             this.pro.id.setText("");
             this.pro.Nombre.setText("");
             this.pro.Precio.setText("");
@@ -219,18 +261,17 @@ public class Controller implements ActionListener {
             System.out.println("La lista contiene " + ListPro.size() + " elementos\n");
 
             for (int i = 0; i < ListPro.size(); i++) {
-                System.out.println("Documento: " + this.ListPro.get(i).getId()+ "\n" + "Nombre: " + this.ListPro.get(i).getNombre() +
-                        "\n" + "Precio: " + this.ListPro.get(i).getPrecio()+ "\n"+"Categoria "+this.ListPro.get(i).getCategoria());
+                System.out.println("Documento: " + this.ListPro.get(i).getId() + "\n" + "Nombre: " + this.ListPro.get(i).getNombre()
+                        + "\n" + "Precio: " + this.ListPro.get(i).getPrecio() + "\n" + "Categoria " + this.ListPro.get(i).getCategoria());
             }
         }
 
         if (this.pro.Buscar == e.getSource()) {
             id = Integer.parseInt(this.pro.id.getText());
-            precio = Integer.parseInt(this.pro.Precio.getText());
             for (int i = 0; i < ListPro.size(); i++) {
                 if (id == ListPro.get(i).getId()) {
                     this.pro.Nombre.setText(ListPro.get(i).getNombre());
-//                    this.pro.Precio.setText(ListPro.get(i).setPrecio());
+                    this.pro.Precio.setText(ListPro.get(i).getPrecio());
                 }
             }
 
@@ -239,16 +280,15 @@ public class Controller implements ActionListener {
          * final de las funciones
          */
     }
-    
+
     /*
     CREAMOS LAS FUNCIONES DE LAS TABLAS PARA QUE ACRGUE LAS INFORMACIONES SUMINISTRADAS
-    */
-    /**
-     * 
-     * @param Tabla
-     * @param ListCliente 
      */
-
+    /**
+     *
+     * @param Tabla
+     * @param ListCliente
+     */
     public void table(JTable Tabla, ArrayList<Clientes> ListCliente) {
 
         for (int i = 0; i < ListCliente.size(); i++) {

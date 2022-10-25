@@ -12,10 +12,10 @@ public class Producto {
     
     protected int Id;
     protected String nombre;
-    protected int precio;
+    protected String precio;
     protected String categoria;
 
-    public Producto(int id, String nombre, int precio, String categoria) {
+    public Producto(int id, String nombre, String precio, String categoria) {
         this.Id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -38,11 +38,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 

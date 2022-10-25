@@ -142,6 +142,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JPanel sepanel;
-    public javax.swing.JPanel terpanel;
+    private javax.swing.JPanel terpanel;
     // End of variables declaration//GEN-END:variables
 }
