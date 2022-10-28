@@ -96,6 +96,11 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         Registrar.setBackground(new java.awt.Color(0, 204, 204));
         Registrar.setText("Registrar");
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 285, -1, -1));
 
         Ape.setFont(new java.awt.Font("Adobe Devanagari", 1, 18)); // NOI18N
@@ -140,6 +145,10 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,12 +4,15 @@
  */
 package model;
 
+import static Model.ListaUsuario.mostrar;
+import java.util.Vector;
+
 /**
  *
  * @author SENA
  */
 public class Producto {
-    
+
     protected int Id;
     protected String nombre;
     protected String precio;

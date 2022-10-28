@@ -4,7 +4,8 @@
  */
 package ejecutar;
 
-import controller.Controller;
+import controller.ControllerAdmin;
+import controller.ControllerCliente;
 import view.Login;
 
 /**
@@ -15,6 +16,6 @@ public class Comercio {
 
     public static void main(String[] args) {
         Login abrir = new Login();
-        Controller cp = new Controller(abrir);
+        ControllerAdmin cp = new ControllerAdmin(abrir);
     }
 }
