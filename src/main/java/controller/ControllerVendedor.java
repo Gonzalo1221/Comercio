@@ -22,7 +22,7 @@ import view.Vendedor;
  */
 public class ControllerVendedor implements ActionListener {
 
-    public Vendedor ven = new Vendedor();
+    public static Vendedor ven = new Vendedor();
 
     ArrayList<Vendedores> Listven = new ArrayList<Vendedores>();
 

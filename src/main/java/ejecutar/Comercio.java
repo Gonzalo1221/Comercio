@@ -6,6 +6,8 @@ package ejecutar;
 
 import controller.ControllerAdmin;
 import controller.ControllerCliente;
+import controller.ControllerProductos;
+import controller.ControllerVendedor;
 import view.Login;
 
 /**
@@ -16,6 +18,9 @@ public class Comercio {
 
     public static void main(String[] args) {
         Login abrir = new Login();
-        ControllerAdmin cp = new ControllerAdmin(abrir);
+        ControllerAdmin ca = new ControllerAdmin(abrir);
+        ControllerCliente cc = new ControllerCliente(ControllerCliente.cli);
+        ControllerProductos cp = new ControllerProductos(ControllerProductos.pro);
+        ControllerVendedor cv = new ControllerVendedor(ControllerVendedor.ven);
     }
 }

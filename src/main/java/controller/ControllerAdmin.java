@@ -115,24 +115,24 @@ public class ControllerAdmin implements ActionListener {
         creamos las funciones de los botones y le ponemos los parametros para el JFrame Login
          */
         if (this.adm.Client == e.getSource()) {
-            this.adm.Panel.add(cli);
-            cli.show();
-            this.pro.doDefaultCloseAction();
-            this.ven.doDefaultCloseAction();
+            this.adm.Panel.add(ControllerCliente.cli);
+            ControllerCliente.cli.show();
+            ControllerProductos.pro.doDefaultCloseAction();
+            ControllerVendedor.ven.doDefaultCloseAction();
 
         }
         if (this.adm.Vendedor == e.getSource()) {
-            this.adm.Panel.add(ven);
-            ven.show();
-            ControllerCliente.classcli.doDefaultCloseAction();
-            this.pro.doDefaultCloseAction();
+            this.adm.Panel.add(ControllerVendedor.ven);
+            ControllerVendedor.ven.show();
+            ControllerCliente.cli.doDefaultCloseAction();
+            ControllerProductos.pro.doDefaultCloseAction();
 
         }
         if (this.adm.Product == e.getSource()) {
-            this.adm.Panel.add(pro);
-            pro.show();
-            this.cli.doDefaultCloseAction();
-            this.ven.doDefaultCloseAction();
+            this.adm.Panel.add(ControllerProductos.pro);
+            ControllerProductos.pro.show();
+            ControllerCliente.cli.doDefaultCloseAction();
+            ControllerVendedor.ven.doDefaultCloseAction();
         }
         if (this.adm.Salir == e.getSource()) {
             this.adm.dispose();

@@ -28,7 +28,10 @@ import view.Vendedor;
  */
 public class ControllerCliente implements ActionListener {
 
-    public Cliente cli = new Cliente();
+    /**
+     *
+     */
+    public static Cliente cli = new Cliente();
 
     ArrayList<Clientes> ListCliente = new ArrayList<Clientes>();
 
