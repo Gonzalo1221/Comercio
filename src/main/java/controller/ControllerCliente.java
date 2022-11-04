@@ -78,6 +78,13 @@ public class ControllerCliente implements ActionListener {
             boolean response = crudp.guardar(id, Nombre, Apellidos, Direccion);
             if (response) {
                 JOptionPane.showMessageDialog(null, "Datos Guardados");
+
+                table1(this.cli.Tabla, ListaUsuario.datos);
+
+                this.cli.Id.setText("");
+                this.cli.Nombre.setText("");
+                this.cli.Apellidos.setText("");
+                this.cli.Direccion.setText("");
             } else {
 
                 JOptionPane.showMessageDialog(null, "Error al Guardar");
@@ -98,14 +105,8 @@ public class ControllerCliente implements ActionListener {
 
                 ListaUsuario.agregar(obj);
 
-                table1(this.cli.Tabla, ListaUsuario.datos);
-
                 JOptionPane.showMessageDialog(null, "REGISTRO EXITOSO");
 
-                this.cli.Id.setText("");
-                this.cli.Nombre.setText("");
-                this.cli.Apellidos.setText("");
-                this.cli.Direccion.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "USERNAME YA EXISTE");
             }*/
