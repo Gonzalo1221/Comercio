@@ -29,15 +29,15 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        User = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
         sepanel = new javax.swing.JPanel();
         icon2 = new javax.swing.JLabel();
         terpanel = new javax.swing.JPanel();
-        Pass = new javax.swing.JPasswordField();
         Iniciar = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
+        User = new javax.swing.JTextField();
+        Pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +49,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         jLabel2.setText("Password");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 131, -1, -1));
-        getContentPane().add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 87, 207, -1));
 
         jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel3.setText("Login");
@@ -81,7 +80,6 @@ public class Login extends javax.swing.JFrame {
 
         terpanel.setBackground(new java.awt.Color(0, 255, 255));
         terpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        terpanel.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 123, 208, -1));
 
         Iniciar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         Iniciar.setText("Iniciar");
@@ -90,6 +88,8 @@ public class Login extends javax.swing.JFrame {
         Salir.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         Salir.setText("Salir");
         terpanel.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 180, -1, -1));
+        terpanel.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 210, -1));
+        terpanel.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 210, -1));
 
         getContentPane().add(terpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 350, 220));
 
@@ -142,6 +142,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JPanel sepanel;
-    private javax.swing.JPanel terpanel;
+    public javax.swing.JPanel terpanel;
     // End of variables declaration//GEN-END:variables
 }

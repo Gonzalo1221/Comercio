@@ -4,6 +4,7 @@
  */
 package controller;
 
+
 import Model.ListaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,6 +33,8 @@ public class ControllerCliente implements ActionListener {
      *
      */
     public static Cliente cli = new Cliente();
+
+    crudpersona crudp = new crudpersona();
 
     ArrayList<Clientes> ListCliente = new ArrayList<Clientes>();
 
@@ -101,11 +104,29 @@ public class ControllerCliente implements ActionListener {
 
         if (this.cli.Mostrar == e.getSource()) {
 
-            System.out.println("La lista contiene " + ListaUsuario.datos.size() + " elementos\n");
+           /* boolean respuesta = crudp.Ingresar();
+            if (respuesta == true) {
+                JOptionPane.showMessageDialog(null, "Verdadero");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falso");
+
+            }
+            
+*/
+          /* int identi = Integer.parseInt(this.cli.Id.getText());
+           crudp.buscar_Cliente(identi);*/
+         boolean response =  crudp.eliminar(3);
+         if(response){
+             JOptionPane.showMessageDialog(null, "Datos Eliminado");
+         }else{
+             
+             JOptionPane.showMessageDialog(null, "Error al Eliminar");
+         }
+            /*System.out.println("La lista contiene " + ListaUsuario.datos.size() + " elementos\n");
 
             for (int i = 0; i < ListaUsuario.datos.size(); i++) {
                 System.out.println("Id: " + ListaUsuario.datos.get(i).getId() + "\n" + "Nombre: " + ListaUsuario.datos.get(i).getNombre() + "\n" + "Apellidos: " + ListaUsuario.datos.get(i).getApellidos() + "\n");
-            }
+            }*/
         }
 
         if (this.cli.Buscar == e.getSource()) {
