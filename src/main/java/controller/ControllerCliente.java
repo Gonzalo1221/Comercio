@@ -4,7 +4,6 @@
  */
 package controller;
 
-
 import Model.ListaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +41,7 @@ public class ControllerCliente implements ActionListener {
     creamos las variables
      */
     private int id;
-    public String Nombre, Apellidos, Direccion;
+    private String Nombre, Apellidos, Direccion;
 
     public ControllerCliente(Cliente cli) {
         this.cli = cli;
@@ -76,6 +75,19 @@ public class ControllerCliente implements ActionListener {
             Apellidos = this.cli.Apellidos.getText();
             Direccion = this.cli.Direccion.getText();
 
+            boolean response = crudp.guardar(id, Nombre, Apellidos, Direccion);
+            if (response) {
+                JOptionPane.showMessageDialog(null, "Datos Guardados");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Error al Guardar");
+            }
+
+            /*id = Integer.parseInt(this.cli.Id.getText());
+            Nombre = this.cli.Nombre.getText();
+            Apellidos = this.cli.Apellidos.getText();
+            Direccion = this.cli.Direccion.getText();
+
             Clientes obj = new Clientes(id, Nombre, Apellidos, Direccion);
 
             if (Clientes.verificarUsuarioNuevo(id, Nombre, Apellidos, Direccion) == -1) {
@@ -96,32 +108,21 @@ public class ControllerCliente implements ActionListener {
                 this.cli.Direccion.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "USERNAME YA EXISTE");
-            }
-
+            }*/
 //            ListCliente.add(new Clientes(id, Nombre, Apellidos, Direccion));
 //            JOptionPane.showMessageDialog(null, "DATO GUARDADO CON ÉXITO");
         }
 
         if (this.cli.Mostrar == e.getSource()) {
 
-           /* boolean respuesta = crudp.Ingresar();
+            boolean respuesta = crudp.mostrar(id, Nombre, Apellidos, Direccion);
             if (respuesta == true) {
                 JOptionPane.showMessageDialog(null, "Verdadero");
             } else {
                 JOptionPane.showMessageDialog(null, "Falso");
 
             }
-            
-*/
-          /* int identi = Integer.parseInt(this.cli.Id.getText());
-           crudp.buscar_Cliente(identi);*/
-         boolean response =  crudp.eliminar(3);
-         if(response){
-             JOptionPane.showMessageDialog(null, "Datos Eliminado");
-         }else{
-             
-             JOptionPane.showMessageDialog(null, "Error al Eliminar");
-         }
+
             /*System.out.println("La lista contiene " + ListaUsuario.datos.size() + " elementos\n");
 
             for (int i = 0; i < ListaUsuario.datos.size(); i++) {
@@ -133,17 +134,19 @@ public class ControllerCliente implements ActionListener {
 
             id = Integer.parseInt(this.cli.Id.getText());
 
-            for (int i = 0; i < ListaUsuario.datos.size(); i++) {
+            int identi = Integer.parseInt(this.cli.Id.getText());
+            crudp.buscar_Cliente(identi);
+
+            /*for (int i = 0; i < ListaUsuario.datos.size(); i++) {
                 if (id == ListaUsuario.datos.get(i).getId()) {
                     this.cli.Nombre.setText(ListaUsuario.datos.get(i).getNombre());
                     this.cli.Apellidos.setText(ListaUsuario.datos.get(i).getApellidos());
                     this.cli.Direccion.setText(ListaUsuario.datos.get(i).getDireccion());
                 }
-            }
-
+            }*/
         }
 
-        if (this.cli.Eliminar == e.getSource()) {
+        /*if (this.cli.Eliminar == e.getSource()) {
             id = Integer.parseInt(this.cli.Id.getText());
             for (int i = 0; i < ListaUsuario.datos.size(); i++) {
                 if (id == ListaUsuario.datos.get(i).getId()) {
@@ -158,11 +161,17 @@ public class ControllerCliente implements ActionListener {
                 }
             }
 
-        }
-
+        }*/
         if (this.cli.Eliminar == e.getSource()) {
 
-            this.cli.Tabla.removeAll();
+            id = Integer.parseInt(this.cli.Id.getText());
+            boolean response = crudp.eliminar(id);
+            if (response) {
+                JOptionPane.showMessageDialog(null, "Datos Eliminado");
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Error al Eliminar");
+            }
 
         }
     }

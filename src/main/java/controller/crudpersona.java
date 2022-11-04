@@ -17,78 +17,7 @@ import java.util.Iterator;
  *
  * @author SENA
  */
-class crudpersona extends Conector implements CRUD {
-
-    public boolean Ingresar() {
-
-        //PreparedStatement ps = null;
-        Connection con = getConexion();
-        ResultSet rs = null;
-        CallableStatement cst = null;
-        String sql = "{call mostrar()}";
-        boolean response = false;
-
-        try {
-            cst = con.prepareCall(sql);
-            rs = cst.executeQuery();
-            response = rs.next();
-            if (response) {
-                do {
-                    System.out.println("El id es: " + rs.getString(1));
-                    System.out.println("El nombre es: " + rs.getString(2));
-                    System.out.println("El Apellidos es: " + rs.getString(3));
-                } while (rs.next());
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println(e);
-            return false;
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println(e.toString());
-            }
-        }
-    }
-
-    public void buscar_Cliente(int id) {
-        Connection con = getConexion();
-        ResultSet rs = null;
-        CallableStatement cst = null;
-        String sql = "{call consultar_cliente(?)}";
-        boolean response = false;
-
-        try {
-            cst = con.prepareCall(sql);
-            cst.setInt(1, id);
-            rs = cst.executeQuery();
-            response = rs.next();
-            if (response) {
-                do {
-                    System.out.println("El id es: " + rs.getString(1));
-                    System.out.println("El nombre es: " + rs.getString(2));
-                    System.out.println("El Apellidos es: " + rs.getString(3));
-                } while (rs.next());
-
-            }
-
-        } catch (SQLException e) {
-
-            System.err.println(e);
-
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println(e.toString());
-            }
-        }
-    }
+public class crudpersona extends Conector implements CRUD {
 
     @Override
     public boolean guardar(int id, String nombre, String apellidos, String direccion) {
@@ -123,8 +52,46 @@ class crudpersona extends Conector implements CRUD {
     }
 
     @Override
+    public boolean mostrar(int id, String nombre, String apellidos, String direccion) {
+
+        Connection con = getConexion();
+        ResultSet rs = null;
+        CallableStatement cst = null;
+        String sql = "{call mostrar()}";
+        boolean response = false;
+
+        try {
+            cst = con.prepareCall(sql);
+            rs = cst.executeQuery();
+            response = rs.next();
+            if (response) {
+                do {
+                    System.out.println("Id: " + rs.getString(1));
+                    System.out.println("Nombre: " + rs.getString(2));
+                    System.out.println("Apellidos: " + rs.getString(3));
+                } while (rs.next());
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.toString());
+            }
+        }
+    }
+
+    @Override
     public boolean actualizar(int id, String nombre, String apellidos, String direccion) {
-        /***
+        /**
+         * *
          * actualizar_usuario
          */
         Connection con = getConexion();
@@ -154,10 +121,13 @@ class crudpersona extends Conector implements CRUD {
                 return false;
             }
         }
-       
+
     }
+
+    @Override
     public boolean eliminar(int id) {
-        /***
+        /**
+         * *
          * actualizar_usuario
          */
         Connection con = getConexion();
@@ -184,6 +154,42 @@ class crudpersona extends Conector implements CRUD {
                 return false;
             }
         }
-       
+
+    }
+
+    @Override
+    public boolean buscar_Cliente(int id) {
+        Connection con = getConexion();
+        ResultSet rs = null;
+        CallableStatement cst = null;
+        String sql = "{call consultar_cliente(?)}";
+        boolean response = false;
+
+        try {
+            cst = con.prepareCall(sql);
+            cst.setInt(1, id);
+            rs = cst.executeQuery();
+            response = rs.next();
+            if (response) {
+                do {
+                    System.out.println("El id es: " + rs.getString(1));
+                    System.out.println("El nombre es: " + rs.getString(2));
+                    System.out.println("El Apellidos es: " + rs.getString(3));
+                } while (rs.next());
+
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println(e);
+
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.toString());
+            }
+        }
+        return false;
     }
 }

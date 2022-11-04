@@ -9,7 +9,9 @@ package interfaz;
  * @author SENA
  */
 public interface CRUD {
-    public boolean guardar(int id, String nombre, String apellidos, String direccion );
-    public boolean actualizar(int id, String nombre, String apellidos, String direccion );
+    public boolean mostrar(int id, String nombre, String apellidos, String direccion);
+    public boolean guardar(int id, String nombre, String apellidos, String direccion);
+    public boolean actualizar(int id, String nombre, String apellidos, String direccion);
     public boolean eliminar(int id);
+    public boolean buscar_Cliente(int id);
 }
